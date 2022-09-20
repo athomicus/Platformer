@@ -5,16 +5,16 @@ extends Actor
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
+func _ready() -> void:
+	velocity.x = -speed.x
+	
 
 func _physics_process(delta) -> void:
-	var c: = 0
+	velocity.y += gravity * delta 
+	if is_on_wall():
+		velocity  *= -1.0
+	 
+		
+	velocity.y = move_and_slide(velocity, Vector2.UP).y
+		
 	
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass

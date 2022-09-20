@@ -6,6 +6,7 @@ extends Actor
  
 
 func _physics_process(delta: float) -> void:
+	velocity.y += gravity * delta
 	var is_jump_interrupted: = Input.is_action_just_released("move_up") and velocity.y < 0.0
 	var direction: = get_direction()
 	#velocity = speed * direction
